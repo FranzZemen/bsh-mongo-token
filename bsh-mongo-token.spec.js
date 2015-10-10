@@ -1,21 +1,12 @@
 var should = require('should');
 var bshPool = require('bsh-mongo-pool');
-var bshToken;
+var bshMongoToken = require('./bsh-mongo-token');
 beforeEach(function() {
-    return bshPool.init('mongodb://localhost/tokenTest')
-        .then(function(result) {
-            bshToken = require('./bsh-mongo-token');
-        });
+    return bshPool.init('mongodb://localhost/tokenTest');
 });
 
 describe('BSH Token Tests', function () {
     it('should create a token', function () {
-        return bshToken.createToken('test','someUser',['all']);
-    });
-    it ('should report cleanup not started', function () {
-        return bshToken.cleanup().should.be.false;
-    });
-    it ('should start a cleanup', function () {
-        bshToken.cleanup(1);
+        return bshMongoToken.createToken('12345','test','someUser',['all']);
     });
 });
