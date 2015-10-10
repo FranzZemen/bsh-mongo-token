@@ -1,6 +1,6 @@
 {
   "name": "bsh-mongo-token",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Mongo Authentication and Authorization Controls for BSH Framework",
   "main": "index.js",
   "scripts": {
@@ -10,9 +10,7 @@
   "license": "MIT",
   "dependencies": {
     "bsh-mongo-pool": "^1.0.0",
-    "bunyan": "^1.5.1",
-    "q": "^1.4.1",
-    "uuid": "^2.0.1"
+    "bunyan": "^1.5.1"
   },
   "devDependencies": {
     "should": "^7.1.0"
