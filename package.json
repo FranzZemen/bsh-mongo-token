@@ -1,8 +1,8 @@
 {
   "name": "bsh-mongo-token",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Mongo Authentication and Authorization Controls for BSH Framework",
-  "main": "index.js",
+  "main": "bsh-mongo-token.js",
   "scripts": {
     "test": "mocha bsh-mongo-token.spec.js"
   },
