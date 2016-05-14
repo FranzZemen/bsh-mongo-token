@@ -7,7 +7,34 @@ beforeEach(function() {
 });
 
 describe('BSH Token Tests', function () {
-    it('should create a token', function () {
-        return bshMongoToken.createToken('12345','test','someUser',['all']);
+    it('should create a token', function (done) {
+        bshMongoToken.createToken('12345','test','someUser',['all'])
+          .then(function (token) {
+              if (token) {
+                  done();
+              }
+          })
+    });
+    it ('should check a created token', function (done) {
+        bshMongoToken.createToken('12345','test','someUser',['all'])
+          .then(function (token){
+              if (token) {
+                  bshMongoToken.checkToken(token)
+                    .then(function (backToken) {
+                        done();
+                    });
+              }
+          })
+    });
+    it ('should touch a created token', function (done) {
+        bshMongoToken.createToken('12345','test','someUser',['all'])
+          .then(function (token){
+              if (token) {
+                  bshMongoToken.touchToken(token)
+                    .then(function (backToken) {
+                        done();
+                    });
+              }
+          })
     });
 });
