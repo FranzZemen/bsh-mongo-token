@@ -58,10 +58,10 @@
         var now = Date.now();
         return pool.db().collection(collection).updateOne({
                 token:token
-            }, {
+            }, {$set: {
                 updated: now,
                 expiration: now + tokenSessionTimeout,
-                finalExpiration: now + tokenFinalTimeout})
+                finalExpiration: now + tokenFinalTimeout}})
             .then(function (result) {
                 log.trace({result:result}, 'touchToken result');
                 return token;
